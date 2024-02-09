@@ -1,3 +1,7 @@
+function setup() {
+  createCanvas(1150, 690);
+}
+
 let flakes = [];
 
 for (let i = 0; i < 250; i++) {
@@ -10,9 +14,11 @@ for (let i = 0; i < 250; i++) {
 }
 
 function draw() {
+  // Background
   noStroke();
   background(0, 0, 52);
 
+  // Snowflakes
   for (let flake of flakes) {
     fill(255, 255, 255, Math.abs(Math.sin(flake.alpha)) * 200);
     ellipse(flake.x, flake.y, 7.5);
@@ -49,11 +55,32 @@ function draw() {
   endShape();
 
   // Fourth iceberg #4
-  beginShape();
-  vertex(1500, 690);
-  bezierVertex(//828, 370, 715, 363, 1700, 690);
+  //beginShape();
+  // vertex(1500, 690);
+  //bezierVertex(828, 370, 715, 363, 1700, 690);
   //endShape();
 }
 
 // Playing Charachter
+let ship = 59;
+let shipWidth = 100;
 
+function startScreen() {
+  // First line on words
+  background(0, 0, 0, alpha);
+  fill(255, 255, 255);
+  textSize(50);
+  textFont("Courier New");
+  textStyle(BOLD);
+  text("STARSHIP ICEBERG", 400, 150);
+
+  // Second line of words
+  fill(255, 255, 0);
+  textFont("Verdana");
+  textSize(20);
+  text("LAND THE STARSHIP ON THE MOUNTAIN");
+
+  // Start Button
+  fill(0, 0, 0);
+  text("Press To Start!");
+}
