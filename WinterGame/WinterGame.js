@@ -1,86 +1,86 @@
+let flakes = [];
+let gameActive = false;
+
 function setup() {
   createCanvas(1150, 690);
-}
 
-let flakes = [];
-
-for (let i = 0; i < 250; i++) {
-  const flake = {
-    x: Math.floor(Math.random() * width),
-    y: Math.floor(Math.random() * height),
-    alpha: Math.random(),
-  };
-  flakes.push(flake);
+  // Sowflakes
+  for (let i = 0; i < 250; i++) {
+    const flake = {
+      x: Math.floor(Math.random() * width),
+      y: Math.floor(Math.random() * height),
+      alpha: Math.random(),
+    };
+    flakes.push(flake);
+  }
 }
 
 function draw() {
-  // Background
-  noStroke();
-  background(0, 0, 52);
+  if (gameActive) {
+    //Background
+    noStroke();
+    background(0, 0, 52);
 
-  // Snowflakes
-  for (let flake of flakes) {
-    fill(255, 255, 255, Math.abs(Math.sin(flake.alpha)) * 200);
-    ellipse(flake.x, flake.y, 7.5);
+    //Snowflakes
+    for (let flake of flakes) {
+      fill(255, 255, 255, Math.abs(Math.sin(flake.alpha)) * 200);
+      ellipse(flake.x, flake.y, 7.5);
 
-    if (flake.y > 670) {
-      flake.y = Math.floor(Math.random() * height);
-      flake.x = Math.floor(Math.random() * width);
-    } else {
-      flake.y = flake.y + 1.5;
+      if (flake.y > 670) {
+        flake.y = Math.floor(Math.random() * height);
+        flake.x = Math.floor(Math.random() * width);
+      } else {
+        flake.y = flake.y + 1.5;
+      }
     }
+
+    // Design for the icebergs
+    fill(255, 255, 255);
+    stroke(255, 255, 255);
+    strokeWeight(4);
+
+    // First iceberg #1
+    beginShape();
+    vertex(67, 698);
+    bezierVertex(107, 526, 168, 525, 210, 697);
+    endShape();
+
+    // Second iceberg #2
+    beginShape();
+    vertex(409, 694);
+    bezierVertex(452, 240, 597, 239, 690, 696);
+    endShape();
+
+    // Third iceberg #3
+    beginShape();
+    vertex(928, 700);
+    bezierVertex(992, 213, 1065, 212, 1151, 697);
+    endShape();
+  } else {
+    startScreen();
   }
-
-  // Design for the icebergs
-  fill(255, 255, 255);
-  stroke(255, 255, 255);
-  strokeWeight(4);
-
-  // First iceberg #1
-  beginShape();
-  vertex(67, 698);
-  bezierVertex(107, 526, 168, 525, 210, 697);
-  endShape();
-
-  // Second iceberg #2
-  beginShape();
-  vertex(409, 694);
-  bezierVertex(452, 240, 597, 239, 690, 696);
-  endShape();
-
-  // Third iceberg #3
-  beginShape();
-  vertex(928, 700);
-  bezierVertex(992, 213, 1065, 212, 1151, 697);
-  endShape();
-
-  // Fourth iceberg #4
-  //beginShape();
-  // vertex(1500, 690);
-  //bezierVertex(828, 370, 715, 363, 1700, 690);
-  //endShape();
 }
-
-// Playing Charachter
-let ship = 59;
-let shipWidth = 100;
 
 function startScreen() {
   // First line on words
-  background(0, 0, 0, alpha);
+  background(0, 0, 0);
   fill(255, 255, 255);
   textSize(50);
-  textFont("Courier New");
   textStyle(BOLD);
-  text("STARSHIP ICEBERG", 400, 150);
+  text("STARSHIP ICEBERG", 250, 180);
 
   // Second line of words
-  fill(255, 255, 0);
+  fill(255, 0, 0);
   textFont("Verdana");
-  textSize(20);
-  text("LAND THE STARSHIP ON THE MOUNTAIN");
+  textSize(17);
+  text("LAND THE STARSHIP ON THE MOUNTAIN", 330, 205);
 
-  // Start Button
-  fill(0, 0, 0);
-  text("Press To Start!");
+  // Start
+  fill(255, 255, 0);
+  textSize(25);
+  text("Press Anywhere To Start!", 340, 450);
+}
+
+function mousePressed() {
+  gameActive = true;
 }
