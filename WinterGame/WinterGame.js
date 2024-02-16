@@ -18,7 +18,7 @@ const iceberg1 = {
 
 // Background for the game
 function setup() {
-  createCanvas(700, 700);
+  createCanvas(700, 680);
 
   // Snowflakes
   for (let i = 0; i < 700; i++) {
