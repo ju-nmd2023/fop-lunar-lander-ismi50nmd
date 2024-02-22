@@ -116,15 +116,17 @@ function runGame() {
   // Moon
   noStroke();
   fill(64, 64, 64);
-  ellipse(594, 83, 100);
+  ellipse(594, 83, 130);
   stroke(32, 32, 32);
   strokeWeight(1);
-  ellipse(573, 66, 10);
-  ellipse(619, 84, 20);
+  ellipse(560, 50, 10);
+  ellipse(631, 71, 20);
   ellipse(585, 101, 12);
   ellipse(597, 44, 10);
   ellipse(610, 116, 7);
   ellipse(595, 78, 6);
+  ellipse(550, 89, 15);
+  ellipse(573, 124, 8);
 
   if (
     spaceshipX >= iceberg1.x &&
