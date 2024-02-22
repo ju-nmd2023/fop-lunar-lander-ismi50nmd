@@ -89,15 +89,42 @@ function runGame() {
   // To make the spaceship stay in the canvas
   spaceshipY = constrain(spaceshipY, 60, height - 60);
 
-  // Design for the iceberg
-  fill(255, 255, 255);
-  stroke(255, 255, 255);
-  strokeWeight(4);
+  // Color for the iceberg
+  fill(224, 224, 224);
+  noStroke();
+
   // First iceberg #1
   beginShape();
   vertex(67, 698);
   bezierVertex(107, 526, 168, 525, 210, 697);
   endShape();
+
+  //Background iceberg
+  beginShape();
+  fill(192, 192, 192);
+  vertex(503, 681);
+  bezierVertex(613, 189, 681, 194, 761, 682);
+  endShape();
+
+  //Second Iceberg)
+  fill(224, 224, 224);
+  beginShape();
+  vertex(376, 698);
+  bezierVertex(456, 327, 477, 326, 592, 697);
+  endShape();
+
+  // Moon
+  noStroke();
+  fill(64, 64, 64);
+  ellipse(594, 83, 100);
+  stroke(32, 32, 32);
+  strokeWeight(1);
+  ellipse(573, 66, 10);
+  ellipse(619, 84, 20);
+  ellipse(585, 101, 12);
+  ellipse(597, 44, 10);
+  ellipse(610, 116, 7);
+  ellipse(595, 78, 6);
 
   if (
     spaceshipX >= iceberg1.x &&
